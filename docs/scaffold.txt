@@ -1,0 +1,13 @@
+ ./sbt "task/run generate:scaffold:ssp farmer name:String maister_farmer_id:Int"
+
+./sbt "task/run generate:scaffold:ssp crops crop crop_name:String title:String sales_text:String good_points:Long product_image1:String product_image2:String product_image3:String post_time:DateTime"
+
+./sbt "task/run generate:scaffold:ssp processes process crop_id:Int post_date:DateTime post_time:DateTime image_url:String comment:String particular:Int sensor_json:String"
+
+./sbt "task/run generate:scaffold:ssp fans fan consumer_id:Int farmer_id:Int"
+
+./sbt "task/run generate:scaffold:ssp consumers consumer name:String"
+
+./sbt "task/run generate:scaffold:ssp comments comment comment_body:String crop_id:Int process_id:Int consumer_id:Int farmer_id:Int post_time:DateTime"
+
+
