@@ -1,4 +1,11 @@
-## Skinny application
+# モデル
+
+![ER図](https://cacoo.com/api/v1/diagrams/CGjrPAJsJjQ8zJ1z-A949F.png?apiKey=02FVVFu79XkvdJuNI6cL)
+
+
+# 以降Skinny Frameworkについて
+
+# Skinny application
 
 Run Skinny app now!
 
