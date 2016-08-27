@@ -1,0 +1,142 @@
+<%@val s: skinny.Skinny %>
+<%@val keyAndErrorMessages: skinny.KeyAndErrorMessages %>
+
+<%-- Be aware of package imports.
+ 1. src/main/scala/templates/ScalatePackage.scala
+ 2. scalateTemplateConfig in project/Build.scala
+--%>
+
+<div class="form-group">
+  <label class="control-label" for="topic_id">
+    ${s.i18n.getOrKey("process.topic_id")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("topic_id")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="topic_id" class="form-control" value="${s.params.topic_id}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("topic_id"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("topic_id"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label">
+    ${s.i18n.getOrKey("process.post_time")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("post_time")) "has-error" else ""}">
+      <div class="col-xs-2">
+        <input type="text" name="post_time_year"   class="form-control" value="${s.params.post_time_year}"   placeholder="${s.i18n.getOrKey("year")}"  maxlength=4 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_month"  class="form-control" value="${s.params.post_time_month}"  placeholder="${s.i18n.getOrKey("month")}" maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_day"    class="form-control" value="${s.params.post_time_day}"    placeholder="${s.i18n.getOrKey("day")}"   maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_hour"   class="form-control" value="${s.params.post_time_hour}"   placeholder="${s.i18n.getOrKey("hour")}"  maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_minute" class="form-control" value="${s.params.post_time_minute}" placeholder="${s.i18n.getOrKey("minute")}" maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_second" class="form-control" value="${s.params.post_time_second}" placeholder="${s.i18n.getOrKey("second")}" maxlength=2 />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("post_time"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("post_time"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="image_url">
+    ${s.i18n.getOrKey("process.image_url")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("image_url")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="image_url" class="form-control" value="${s.params.image_url}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("image_url"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("image_url"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="text">
+    ${s.i18n.getOrKey("process.text")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("text")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="text" class="form-control" value="${s.params.text}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("text"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("text"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="particular">
+    ${s.i18n.getOrKey("process.particular")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("particular")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="particular" class="form-control" value="${s.params.particular}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("particular"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("particular"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="sensor_json">
+    ${s.i18n.getOrKey("process.sensor_json")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("sensor_json")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="sensor_json" class="form-control" value="${s.params.sensor_json}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("sensor_json"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("sensor_json"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-actions">
+  ${unescape(s.csrfHiddenInputTag)}
+  <input type="submit" class="btn btn-primary" value="${s.i18n.getOrKey("submit")}">
+  <a class="btn btn-default" href="${s.url(Controllers.processes.indexUrl)}">${s.i18n.getOrKey("cancel")}</a>
+</div>

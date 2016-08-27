@@ -1,0 +1,62 @@
+<%@val item: model.Crop %>
+<%@val s: skinny.Skinny %>
+
+<%-- Be aware of package imports.
+ 1. src/main/scala/templates/ScalatePackage.scala
+ 2. scalateTemplateConfig in project/Build.scala
+--%>
+
+<h3>${s.i18n.getOrKey("crop.detail")}</h3>
+<hr/>
+#for (notice <- s.flash.notice)
+  <p class="alert alert-info">${notice}</p>
+#end
+<table class="table table-bordered">
+<tbody>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.id")}</th>
+    <td>${item.id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.crop_name")}</th>
+    <td>${item.crop_name}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.title")}</th>
+    <td>${item.title}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.sales_text")}</th>
+    <td>${item.sales_text}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.good_points")}</th>
+    <td>${item.good_points}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.product_image1")}</th>
+    <td>${item.product_image1}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.product_image2")}</th>
+    <td>${item.product_image2}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.product_image3")}</th>
+    <td>${item.product_image3}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.post_time")}</th>
+    <td>${item.post_time}</td>
+  </tr>
+
+</tbody>
+</table>
+
+<hr/>
+<div class="form-actions">
+  <a class="btn btn-default" href="${s.url(Controllers.crops.indexUrl)}">${s.i18n.getOrKey("backToList")}</a>
+  <a href="${s.url(Controllers.crops.editUrl, "id" -> item.id)}" class="btn btn-info">${s.i18n.getOrKey("edit")}</a>
+  <a data-method="delete" data-confirm="${s.i18n.getOrKey("crop.delete.confirm")}"
+    href="${s.url(Controllers.crops.destroyUrl, "id" -> item.id)}" rel="nofollow" class="btn btn-danger">${s.i18n.getOrKey("delete")}</a>
+</div>

@@ -1,0 +1,180 @@
+<%@val s: skinny.Skinny %>
+<%@val keyAndErrorMessages: skinny.KeyAndErrorMessages %>
+
+<%-- Be aware of package imports.
+ 1. src/main/scala/templates/ScalatePackage.scala
+ 2. scalateTemplateConfig in project/Build.scala
+--%>
+
+<div class="form-group">
+  <label class="control-label" for="crop_name">
+    ${s.i18n.getOrKey("crop.crop_name")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("crop_name")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="crop_name" class="form-control" value="${s.params.crop_name}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("crop_name"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("crop_name"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="title">
+    ${s.i18n.getOrKey("crop.title")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("title")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="title" class="form-control" value="${s.params.title}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("title"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("title"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="sales_text">
+    ${s.i18n.getOrKey("crop.sales_text")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("sales_text")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="sales_text" class="form-control" value="${s.params.sales_text}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("sales_text"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("sales_text"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="good_points">
+    ${s.i18n.getOrKey("crop.good_points")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("good_points")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="good_points" class="form-control" value="${s.params.good_points}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("good_points"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("good_points"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="product_image1">
+    ${s.i18n.getOrKey("crop.product_image1")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("product_image1")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="product_image1" class="form-control" value="${s.params.product_image1}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("product_image1"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("product_image1"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="product_image2">
+    ${s.i18n.getOrKey("crop.product_image2")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("product_image2")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="product_image2" class="form-control" value="${s.params.product_image2}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("product_image2"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("product_image2"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label" for="product_image3">
+    ${s.i18n.getOrKey("crop.product_image3")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("product_image3")) "has-error" else ""}">
+      <div class="col-xs-12">
+        <input type="text" name="product_image3" class="form-control" value="${s.params.product_image3}" />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("product_image3"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("product_image3"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label">
+    ${s.i18n.getOrKey("crop.post_time")}
+  </label>
+  <div class="controls row">
+    <div class="${if(keyAndErrorMessages.hasErrors("post_time")) "has-error" else ""}">
+      <div class="col-xs-2">
+        <input type="text" name="post_time_year"   class="form-control" value="${s.params.post_time_year}"   placeholder="${s.i18n.getOrKey("year")}"  maxlength=4 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_month"  class="form-control" value="${s.params.post_time_month}"  placeholder="${s.i18n.getOrKey("month")}" maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_day"    class="form-control" value="${s.params.post_time_day}"    placeholder="${s.i18n.getOrKey("day")}"   maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_hour"   class="form-control" value="${s.params.post_time_hour}"   placeholder="${s.i18n.getOrKey("hour")}"  maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_minute" class="form-control" value="${s.params.post_time_minute}" placeholder="${s.i18n.getOrKey("minute")}" maxlength=2 />
+      </div>
+      <div class="col-xs-2">
+        <input type="text" name="post_time_second" class="form-control" value="${s.params.post_time_second}" placeholder="${s.i18n.getOrKey("second")}" maxlength=2 />
+      </div>
+    </div>
+    #if (keyAndErrorMessages.hasErrors("post_time"))
+      <div class="col-xs-12 has-error">
+        #for (error <- keyAndErrorMessages.getErrors("post_time"))
+          <label class="control-label">${error}</label>
+        #end
+      </div>
+    #end
+  </div>
+</div>
+<div class="form-actions">
+  ${unescape(s.csrfHiddenInputTag)}
+  <input type="submit" class="btn btn-primary" value="${s.i18n.getOrKey("submit")}">
+  <a class="btn btn-default" href="${s.url(Controllers.crops.indexUrl)}">${s.i18n.getOrKey("cancel")}</a>
+</div>

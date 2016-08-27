@@ -2,5 +2,15 @@
 <hr/>
 <p>
 Your first Skinny app works!
+
+<h2>マスタ情報</h2>
+
+<a href="/farmers">農家情報</a><br />
+<a href="/crops">作物情報</a><br />
+<a href="/processes">作業記録</a><br />
+<a href="/fans">ファン</a><br />
+<a href="/consumers">消費者</a><br />
+<a href="/comments">コメント</a><br />
+
 </p>
 
