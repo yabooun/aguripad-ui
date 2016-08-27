@@ -1,0 +1,8 @@
+# DB
+brew install postgresql
+pg_ctl -l /usr/local/var/postgres/server.log start
+createuser aguripad
+createdb aguripad -O aguripad
+
+psql -f ./ddl.sql -U aguripad -D aguripad
+
