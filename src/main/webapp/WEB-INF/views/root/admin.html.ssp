@@ -1,0 +1,7 @@
+<h2>管理</h2>
+<a href="/admin/farmers">農家</a><br />
+<a href="/admin/crops">作物</a><br />
+<a href="/admin/processes">プロセス</a><br />
+<a href="/admin/consumers">一般ユーザー</a><br />
+<a href="/admin/comments">コメント</a><br />
+<a href="/admin/fans">ファン</a><br />

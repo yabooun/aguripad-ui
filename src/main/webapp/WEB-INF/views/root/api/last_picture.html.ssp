@@ -1,0 +1,2 @@
+<%@val picture_path: String %>
+${picture_path}

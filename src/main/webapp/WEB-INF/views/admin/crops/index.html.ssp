@@ -1,0 +1,80 @@
+<%@val s: skinny.Skinny %>
+<%@val items: Seq[model.Crop] %>
+<%@val totalPages: Int %>
+<%@val page: Int = s.params.page.map(_.toString.toInt).getOrElse(1) %>
+
+<%-- Be aware of package imports.
+ 1. src/main/scala/templates/ScalatePackage.scala
+ 2. scalateTemplateConfig in project/Build.scala
+--%>
+
+<h3>${s.i18n.getOrKey("crop.list")}</h3>
+<hr/>
+#for (notice <- s.flash.notice)
+  <p class="alert alert-info">${notice}</p>
+#end
+
+#if (totalPages > 1)
+  <ul class="pagination">
+    <li>
+      <a href="${s.url(Controllers.crops.indexUrl, "page" -> 1)}">&laquo;</a>
+    </li>
+    <% val maxPage = Math.min(totalPages, if (page <= 5) 11 else page + 5) %>
+    #for (i <- Math.max(1, maxPage - 10) to maxPage)
+      <li class="${if (i == page) "active" else ""}">
+        <a href="${s.url(Controllers.crops.indexUrl, "page" -> i)}">${i}</a>
+      </li>
+    #end
+    <li>
+      <a href="${s.url(Controllers.crops.indexUrl, "page" -> totalPages)}">&raquo;</a>
+    </li>
+    <li>
+      <span>${Math.min(page, totalPages)} / ${totalPages}</span>
+    </li>
+  </ul>
+#end
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>${s.i18n.getOrKey("crop.id")}</th>
+    <th>${s.i18n.getOrKey("crop.crop_name")}</th>
+    <th>${s.i18n.getOrKey("crop.title")}</th>
+    <th>${s.i18n.getOrKey("crop.sales_comment")}</th>
+    <th>${s.i18n.getOrKey("crop.good_points")}</th>
+    <th>${s.i18n.getOrKey("crop.product_image1")}</th>
+    <th>${s.i18n.getOrKey("crop.product_image2")}</th>
+    <th>${s.i18n.getOrKey("crop.product_image3")}</th>
+    <th>${s.i18n.getOrKey("crop.post_time")}</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  #for (item <- items)
+  <tr>
+    <td>${item.id}</td>
+    <td>${item.crop_name}</td>
+    <td>${item.title}</td>
+    <td>${item.sales_comment}</td>
+    <td>${item.good_points}</td>
+    <td>${item.product_image1}</td>
+    <td>${item.product_image2}</td>
+    <td>${item.product_image3}</td>
+    <td>${item.post_time}</td>
+    <td>
+      <a href="${s.url(Controllers.crops.showUrl, "id" -> item.id)}" class="btn btn-default">${s.i18n.getOrKey("detail")}</a>
+      <a href="${s.url(Controllers.crops.editUrl, "id" -> item.id)}" class="btn btn-info">${s.i18n.getOrKey("edit")}</a>
+      <a data-method="delete" data-confirm="${s.i18n.getOrKey("crop.delete.confirm")}"
+        href="${s.url(Controllers.crops.destroyUrl, "id" -> item.id)}" rel="nofollow" class="btn btn-danger">${s.i18n.getOrKey("delete")}</a>
+    </td>
+  </tr>
+  #end
+  #if (items.isEmpty)
+  <tr>
+    <td colspan="10">${s.i18n.getOrKey("empty")}</td>
+  </tr>
+  #end
+</tbody>
+</table>
+
+<a href="${s.url(Controllers.crops.newUrl)}" class="btn btn-primary">${s.i18n.getOrKey("new")}</a>

@@ -1,0 +1,54 @@
+<%@val item: model.Comment %>
+<%@val s: skinny.Skinny %>
+
+<%-- Be aware of package imports.
+ 1. src/main/scala/templates/ScalatePackage.scala
+ 2. scalateTemplateConfig in project/Build.scala
+--%>
+
+<h3>${s.i18n.getOrKey("comment.detail")}</h3>
+<hr/>
+#for (notice <- s.flash.notice)
+  <p class="alert alert-info">${notice}</p>
+#end
+<table class="table table-bordered">
+<tbody>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.id")}</th>
+    <td>${item.id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.comment_body")}</th>
+    <td>${item.comment_body}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.crop_id")}</th>
+    <td>${item.crop_id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.process_id")}</th>
+    <td>${item.process_id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.consumer_id")}</th>
+    <td>${item.consumer_id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.farmer_id")}</th>
+    <td>${item.farmer_id}</td>
+  </tr>
+  <tr>
+    <th>${s.i18n.getOrKey("comment.post_time")}</th>
+    <td>${item.post_time}</td>
+  </tr>
+
+</tbody>
+</table>
+
+<hr/>
+<div class="form-actions">
+  <a class="btn btn-default" href="${s.url(Controllers.comments.indexUrl)}">${s.i18n.getOrKey("backToList")}</a>
+  <a href="${s.url(Controllers.comments.editUrl, "id" -> item.id)}" class="btn btn-info">${s.i18n.getOrKey("edit")}</a>
+  <a data-method="delete" data-confirm="${s.i18n.getOrKey("comment.delete.confirm")}"
+    href="${s.url(Controllers.comments.destroyUrl, "id" -> item.id)}" rel="nofollow" class="btn btn-danger">${s.i18n.getOrKey("delete")}</a>
+</div>
